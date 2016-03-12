@@ -1,21 +1,26 @@
-.gallery {
+
+
+.gallery,
+.container,
+.container2 {
     height: 100%;
 }
 
+
+
 .gallery-current {
-    height: 80%;
-    max-height: 100%;
+    max-height: 80%;
     max-width: 100%;
     margin: 0 auto;
     display: block;
 }
 
 .gallery-scroll {
-    height: 20%;
+    height: 18%;
     overflow-x: scroll;
     white-space: nowrap;
     text-align: center;
-    margin-top: 2%;
+    padding-top: 2%;
     font-size: 0px;
 }
 .gallery-scroll img {
