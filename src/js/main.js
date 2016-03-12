@@ -4,7 +4,6 @@
     function PhotoGallery (element, pix) {
 
         // define some necessary variables
-
         this.gallery = $('<div>',{class:'gallery'});
 
         $(element).append(this.gallery);
@@ -95,13 +94,13 @@
     //shoot.removeImage('src/tiger1.jpg');
     //shoot.destroy();
 
-    var shoot2 = PhotoGallery ($('.container2'), images);
-    //$('body').append(shoot2);
+    var shoot2 = new PhotoGallery ($('.container2'), images);
 
-    for (var i=0;i<10;i++){
-        console.log(i);
-    }
 
+    shoot2.destroy();
+
+    shoot2 = new PhotoGallery ($('.container2'), images);
+ 
 
 })();
 
