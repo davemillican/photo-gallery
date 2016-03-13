@@ -1,12 +1,18 @@
 
 (function () {
 
-    function PhotoGallery (element, pix) {
+    function PhotoGallery (element, pix, id) {
+
+        //  This is for DEBUG
+        //  ***********************************
+        this.uniqueId = id;
 
         // define some necessary variables
+    
         this.gallery = $('<div>',{class:'gallery'});
 
         $(element).append(this.gallery);
+
         // Add the Big picture element.
         this.currentWindow = $('<img>', {class:'gallery-current'});
         this.gallery.append (this.currentWindow);
@@ -51,6 +57,7 @@
         //the gallery
 
         var destroyFunction = function destroyFunction( ) {
+            this.gallery.remove();
             this.scrollWindow.remove();
             this.currentWindow.remove();
 
@@ -61,7 +68,7 @@
         }
 
         var removeImageFunction = function removeImageFunction(imgStr) {
-            var toRemove = scrollWindow.find('[src="'+imgStr+'"]');
+            var toRemove = this.scrollWindow.find('[src="'+imgStr+'"]');
 
             toRemove.remove();     
         }
@@ -85,21 +92,40 @@
 
     }
 
-    var images = ['src/bldg.jpg', 'src/skyscraper-day-fun.jpg','src/bldg.jpg', 'src/skyscraper-day-fun.jpg','src/bldg.jpg', 'src/skyscraper-day-fun.jpg']
+    /************   Test Platform **********************
+    ****************************************************/
 
-    var shoot = new PhotoGallery ($('.container'), images);
+    var images = ['src/bldg.jpg', 'src/skyscraper-day-fun.jpg',
+                    'src/beach.jpg', 'src/jaguar1.jpg',
+                    'src/chile.jpg', 'src/Argentina_gaucho.jpg'];
+
+    var images2 = ['src/bldg.jpg','src/skyscraper-day-fun.jpg'];
+
+    var shoot = new PhotoGallery ($('.container'), images,2013);
+
 
     shoot.addImage('src/tiger2.jpg');
     shoot.addImage('src/tiger1.jpg');
-    //shoot.removeImage('src/tiger1.jpg');
+    shoot.removeImage('src/tiger1.jpg');
     //shoot.destroy();
-
-    var shoot2 = new PhotoGallery ($('.container2'), images);
-
+//function testbed () {
+    var shoot2 = new PhotoGallery ($('.container2'), images,2014);
 
     shoot2.destroy();
 
-    shoot2 = new PhotoGallery ($('.container2'), images);
+    shoot2 = new PhotoGallery ($('.container2'), images2,2014);
+
+    console.log (shoot2);
+
+    shoot2.addImage('src/tiger2.jpg');
+    //shoot2.removeImage('src/skyscraper-day-fun.jpg')
+
+    var shoot3 = new PhotoGallery ($('.container3'), images2,2015);
+    shoot3.addImage('src/tiger1.jpg');
+    shoot3.addImage('src/beach.jpg');
+    shoot.removeImage('src/bldg.jpg');
+
+//}
  
 
 })();

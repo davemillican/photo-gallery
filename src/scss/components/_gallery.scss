@@ -2,14 +2,15 @@
 
 .gallery,
 .container,
-.container2 {
+.container2,
+.container3 {
     height: 100%;
 }
 
 
 
 .gallery-current {
-    max-height: 80%;
+    height: 80%;
     max-width: 100%;
     margin: 0 auto;
     display: block;
